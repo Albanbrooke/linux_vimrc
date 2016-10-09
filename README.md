@@ -31,7 +31,7 @@ ctags -R --c++-kinds=+l+x+p --fields=+iaSl --extra=+q --language-force=c++ -f st
 cd /usr/include/
 ctags -R --c-kinds=+l+x+p --fields=+lS -I __THROW,__nonnull -f sys.tags
 第四步：
-设置UltiSnips，自定义UltiSnips的模板文件，我自定义的代码模板文件 cpp.snippets，路径为 ~/.vim/bundle/ultisnips/mysnippets/cpp.snippets，对应设置如下： let g:UltiSnipsSnippetDirectories=["mysnippets"] 其中，目录名切勿取为 snippets，这是 UltiSnips 内部保留关键字；另外，目录一定要是 ~/.vim/bundle/ 下的子目录，也就是 vim 的运行时目录。
+设置UltiSnips，自定义UltiSnips的模板文件，我自定义的代码模板文件 cpp.snippets，路径为 ~/.vim/bundle/ultisnips/mysnippets/cpp.snippets，对应设置如下： let g:UltiSnipsSnippetDirectories=["mysnippets"] 其中，目录名切勿取为 snippets，这是 UltiSnips 内部保留关键字；另外，目录一定要是 ~/.vim/bundle/ 下的子目录，也就是 vim 的运行时目录。（这个地方一定要注意，UltiSnipsSnippetDirectories设置为目录名称，不是绝对路径名称）
 
 第五步：
 将YCM的配置文件.ycm_extra_conf.py放到~/目录下
