@@ -460,6 +460,9 @@ map <leader>rs :source my.vim<cr>
 
  
 " 设置快捷键实现一键编译及运行
+" 先删除老的可执行程序，再重新编译
+" 如果编译错误，quickfix 窗口会固定在底部，罗列出所有编译过程中的所有错误，
+" 如果编译正常（即便是存在链接错误），quickfix 窗口会出现“Press ENTER or type command to continue”的输入等待提示信息，
 nmap <Leader>m :wa<CR> :cd build/<CR> :!rm -rf main<CR> :!cmake CMakeLists.txt<CR>:make<CR><CR> :cw<CR> :cd ..<CR>
 nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
 
