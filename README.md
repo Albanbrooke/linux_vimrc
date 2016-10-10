@@ -31,27 +31,21 @@ ctags -R --c++-kinds=+l+x+p --fields=+iaSl --extra=+q --language-force=c++ -f st
 cd /usr/include/
 ctags -R --c-kinds=+l+x+p --fields=+lS -I __THROW,__nonnull -f sys.tags
 第四步：
-设置UltiSnips，自定义UltiSnips的模板文件，我自定义的代码模板文件 cpp.snippets，路径为 ~/.vim/bundle/ultisnips/mysnippets/cpp.snippets，对应设置如下： let g:UltiSnipsSnippetDirectories=["mysnippets"] 其中，目录名切勿取为 snippets，这是 UltiSnips 内部保留关键字；另外，目录一定要是 ~/.vim/bundle/ 下的子目录，也就是 vim 的运行时目录。（这个地方一定要注意，UltiSnipsSnippetDirectories设置为目录名称，不是绝对路径名称）
-UltiSnips和YCM有冲突，暂时还没解决。
-在vim中输入:UltiSnipsEdit，可以查看all.snippets，这个就是模板文件，会显示模板文件的路径，这个路径是let g:UltiSnipsSnippetsDir='~/.vim/bundle/ultisnips'设置的，不是let g:UltiSnipsSnippetDirectories=["ultisnips"]。
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-UltiSnips和ycm冲突的解决方法，还没验证。
-" if you use Vundle, load plugins:
-Bundle 'ervandew/supertab'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
+设置UltiSnips，自定义UltiSnips的模板文件，我自定义的代码模板文件 cpp.snippets（如果是编辑.cpp文件，一定要写成cpp.snippets。安装官方文档解释，编辑某种类型的文件如：.c文件，会先去变量UltiSnipsSnippetsDir指定的文件夹下搜索c.snippets文件模板，这也是UltiSnips工作的原理），路径必须设置为~/.vim/mysnippets/cpp.snippets，
+有的教程设置路径为 ~/.vim/bundle/ultisnips/mysnippets/cpp.snippets，
+对应设置如下： let g:UltiSnipsSnippetDirectories=["mysnippets"] 其中，目录名切勿取为 snippets，这是 UltiSnips 内部保留关键字；另外，目录一定要是 ~/.vim/ 下的子目录，也就是 vim 的运行时目录。（这个地方一定要注意，UltiSnipsSnippetDirectories设置为目录名称，不是绝对路径名称）
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-Here YouCompleteMe is bound to a different combination (Ctrl-n), but then that combination is bound to tab through SuperTab. UltiSnips and SuperTab play nice together, so you can then just bind UltiSnips to tab directly and everything will work out.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+在vim中输入:UltiSnipsEdit，可以查看all.snippets，这个就是模板文件，会显示模板文件的路径，这个路径是let g:UltiSnipsSnippetsDir='~/.vim/mysnippets'设置的，不是let g:UltiSnipsSnippetDirectories=["mysnippets"]。
+（最重要的一点：自定义的文件夹一定不能放到插件管理插件bundle所在的文件夹下，也就是~/.vim/bundle/文件夹下，因为在执行:PluginClean的时候会自动清除没有在~/.vimrc里注册的文件夹）
+设置UltiSnips和YouCompleteMe快捷键<tab>不兼容问题：
+let g:UltiSnipsSnippetDirectories=["mysnippets"]                                
+let g:UltiSnipsSnippetsDir='~/.vim/mysnippets'
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+其中<leader>是：
+"定义快捷键的前缀
+let mapleader=";" 
 
 第五步：
 将YCM的配置文件.ycm_extra_conf.py放到~/目录下
