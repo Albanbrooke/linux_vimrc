@@ -57,6 +57,9 @@ let mapleader=";"
 /data/workplace/foo/src/
 [bar] 
 /data/workplace/bar/src/
+上例设定了两个工程的根目录，方括号内是对应工程名，路径为工程的代码目录，不要包含构建目录、文档目录，以避免将产生非代码文件的标签信息。
+这样，从以上目录打开任何代码文件时，indexer 便对整个目录创建标签文件，若代码文件有更新，那么在文件保存时，indexer 将自动调用 ctags 更新标签文件，indexer 生成的标签文件以工程名命名，位于 ~/.indexer_files_tags/，并自动引入进 vim 中
+
 第七步：
 llvm+clang一定要是64位的
 到LLVM官网（http://llvm.org/releases/download.html#3.7.0）下载ubuntu预编译包（Pre-Built Binaries）——Clang for x86_64 Ubuntu 14.04 (.sig)。然后解压，进入到解压的文件夹里（里面有四个文件夹bin，include，lib，share），将这四个文件夹拷到/usr/local下（命令行是$sudo cp -r ～/放解压文件的目录名/clang+llvm-3.7.0-x86_64-linux-gnu-ubuntu-14.04/* /usr/local）即可。在终端输入 clang –v ，就能看见安装好的 clang 编译器版本了。 libc++和libc++abi已经配置好，直接使用即可（以前的3.6版本的是没有配置好的，需要自己配置）。
