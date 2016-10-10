@@ -191,7 +191,8 @@ set nofoldenable
 
 
 " >>
-" 接口与实现快速切换
+" 插件vim-fswitch实现
+" 接口与实现快速切换，即类头文件和实现文件切换
 " *.cpp 和 *.h 间切换
 nmap <silent> <Leader>sw :FSHere<cr>
 " <<
@@ -275,8 +276,9 @@ let g:tagbar_type_cpp = {
 
 
 " >>
-" 代码导航
- 
+" 代码导航（声明/定义跳转）
+" indexer自动生成标签tags，vim有标签栈（tags stack）机制，从而实现声明/定义跳转
+" 只需先键入 ctrl-]，若没跳转至需要的标签，再键入 tn 往后或者 tp 往前遍历即可
 " 基于标签的代码导航
 " indexer 自动生成项目的ctags，YCM调用ctags
 " 设置插件 indexer 调用 ctags 的参数
@@ -396,6 +398,8 @@ let g:ycm_seed_identifiers_with_syntax=1
 
 
 " >>
+" 根据类声明自动生成类实现
+" vim-protodef依赖vim-fswitch
 " 由接口快速生成实现框架
 " 成员函数的实现顺序与声明顺序一致
 let g:disable_protodef_sorting=1
