@@ -31,7 +31,7 @@ ctags -R --c++-kinds=+l+x+p --fields=+iaSl --extra=+q --language-force=c++ -f st
 cd /usr/include/
 ctags -R --c-kinds=+l+x+p --fields=+lS -I __THROW,__nonnull -f sys.tags
 第四步：
-设置UltiSnips，自定义UltiSnips的模板文件，我自定义的代码模板文件 cpp.snippets（如果是编辑.cpp文件，一定要写成cpp.snippets。安装官方文档解释，编辑某种类型的文件如：.c文件，会先去变量UltiSnipsSnippetsDir指定的文件夹下搜索c.snippets文件模板，这也是UltiSnips工作的原理），路径必须设置为~/.vim/mysnippets/cpp.snippets，
+设置UltiSnips，自定义UltiSnips的模板文件，我自定义的代码模板文件 cpp.snippets（如果是编辑.cpp文件，一定要写成cpp.snippets。安装官方文档解释，编辑某种类型的文件如：.c文件，会先去变量UltiSnipsSnippetsDir指定的文件夹下搜索c.snippets文件模板，文件名后缀必须和模板前缀一致，这也是UltiSnips工作的原理），路径必须设置为~/.vim/mysnippets/cpp.snippets，
 有的教程设置路径为 ~/.vim/bundle/ultisnips/mysnippets/cpp.snippets，
 对应设置如下： let g:UltiSnipsSnippetDirectories=["mysnippets"] 其中，目录名切勿取为 snippets，这是 UltiSnips 内部保留关键字；另外，目录一定要是 ~/.vim/ 下的子目录，也就是 vim 的运行时目录。（这个地方一定要注意，UltiSnipsSnippetDirectories设置为目录名称，不是绝对路径名称）
 
