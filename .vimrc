@@ -379,8 +379,12 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files=0
 
 "引入 C++ 标准库 tags
+"引入c++ tags，cd /usr/include/c++/4.8
+" ctags -R --c++-kinds=+l+x+p --fields=+iaSl --extra=+q --language-force=c++ -f stdcpp.tags
 set tags+=/usr/include/c++/5/stdcpp.tags
 "引入linux系统API
+"生成tags，cd /usr/include/
+"ctags -R --c-kinds=+l+x+p --fields=+lS -I __THROW,__nonnull -f sys.tags 
 set tags+=/usr/include/sys.tags
 
 " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
