@@ -277,8 +277,8 @@ let g:tagbar_type_cpp = {
 
 " >>
 " 代码导航（声明/定义跳转）
-" indexer自动生成标签tags，vim有标签栈（tags stack）机制，从而实现声明/定义跳转
-" 只需先键入 ctrl-]，若没跳转至需要的标签，再键入 tn 往后或者 tp 往前遍历即可
+
+" indexer自动生成项目的ctags，YCM调用ctags，indexer自动生成标签tags，vim有标签栈（tags stack）机制，从而实现声明/定义跳转， 只需先键入 ctrl-]，若没跳转至需要的标签，再键入 tn 往后或者 tp 往前遍历即可
 " 基于标签的代码导航
 " indexer 自动生成项目的ctags，YCM调用ctags
 " 设置插件 indexer 调用 ctags 的参数
@@ -348,7 +348,7 @@ nnoremap <Leader>rwc :call Replace(1, 1, input('Replace'.expand('<cword>').'with
 
 
 " 模板补全
-" UltiSnips 的 tab 键与 YCM 冲突，重新设定
+" UltiSnips 的 tab 键与 YCM 冲突，重新设定，从品牌。snippets必须在.vim/文件夹下的子目录中，如果放到.vim/bundle下会被bundle在:PluginClean的时候自动删除，所以必须放到.vim/mysnippets/下。
 let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippets'
 let g:UltiSnipsExpandTrigger="<leader><tab>"
@@ -361,6 +361,10 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " YCM 补全菜单配色
 " 菜单
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+
+"指定路径                                                                                                                     
+"let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 " 选中项
 highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
