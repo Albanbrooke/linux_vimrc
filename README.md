@@ -11,11 +11,12 @@ zypper in libstdc++47-devel
 
 zypper in libstdc++6
 位于 /usr/lib/libstdc++.so.6。呃，是滴，libstdc++、libsupc++ 两个子库的相关文件是合并一起安装的。
-安装的 GNU C++ 标准库源码文件，openSUSE 可用如下命令：
-zypper install libstdc++48-devel
+安装的 GNU C++ 标准库头文件，openSUSE 可用如下命令：
+zypper install libstdc++48-devel。
+安装成功后，在 /usr/include/c++/4.8/ 可见到所有头文件。
 获取 linux 系统 API 头文件。openSUSE 可用如下命令：
-zypper install linux-glibc-devel
-编译 YCM 共享库：
+zypper install linux-glibc-devel。
+编译 YCM 共享库之前要安装这些：
 zypper --no-refresh se python-devel python3-devel boost-devel llvm-clang-devel
 第一步：
 先下载管理插件的插件vundle
